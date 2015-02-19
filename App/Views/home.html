@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+{% set errors_list = app.session.getFlashBag.get('error') %}
+
+{% if (errors_list is not empty) %}
+	<div class="row alert alert-danger alert-dismissable" style="margin-top: 25px;">
+		<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+		{% for msg in errors_list %}
+				{{ msg }}</br>
+		{% endfor %}
+	</div>
+{% endif %}
+
+{% for experience in experiences %}
+ {% include 'experience.html' %}
+{% endfor %}
+
+{% if is_granted('IS_AUTHENTICATED_FULLY') %}
+	<div style="padding-top: 25px;">
+		{% include 'add_experience.html' %}
+	</div>
+{% endif %}
+
+{% endblock %}

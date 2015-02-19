@@ -1,0 +1,19 @@
+<h2> Add new experience</h2>
+
+<form class="form-horizontal" action="{{ path('experience.add') }}" method="post">
+	<div class="form-group">
+		<label class="col-lg-2 control-label">Title</label>
+		<div class="col-lg-10">
+			<input type="text" class="form-control" name="title" placeholder="title" value="">
+		</div>
+	</div>
+	<div class="form-group">
+		<label class="col-lg-2 control-label">Experience</label>
+		<div class="col-lg-10">
+			<textarea class="form-control" name="content" rows="3"></textarea>
+		</div>
+	</div>
+	<div class="text-center">
+		<button type="submit" class="btn btn-primary">Submit</button>
+	</div>
+</form>
